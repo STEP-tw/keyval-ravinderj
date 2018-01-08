@@ -3,13 +3,12 @@ const ParseInfo=require("./parseInfo.js");
 const InvalidKeyError=require("./errors/invalidKeyError.js");
 
 const contains=function(list,key,caseSensitiveness) {
-  if(caseSensitiveness){
     return list.find(function(validKey){
+      if(caseSensitiveness){
       return key==validKey;
-    });
-  }
-  return list.find(function(validKey){
-    return key.toUpperCase()==validKey.toUpperCase();
+    }else{
+      return key.toUpperCase()==validKey.toUpperCase();
+    }
   });
 }
 
